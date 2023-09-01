@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calc Calculator</title>
     </head>
     <style>
@@ -37,12 +39,13 @@
         align-items: center baseline;
         margin: 10% 25%;
         width: 320px;
-        height: 500px;
+        height: 545px;
         border: solid 2px #343434;
         border-radius: 20px;
         background-color: rgb(50, 50, 50);
         box-shadow: inset -1px 0px 5px 0px #fcdea5e8;
        } 
+       
        .form{
         width:300px;
         height:370px;
@@ -50,6 +53,9 @@
         align-content: center;
         margin:0px 8px 8px 8px;
         align-items:end;
+       }
+       #del{
+        width: 150px;
        }
        
        .input{
@@ -123,7 +129,10 @@
                 <button onclick="display('0')" class="key">0</button>
                 <button onclick="display('.')" class="decimal">.</button>
                 <button onclick="calculate('=')" class="calculate" style="background-color: #fe6128; color: #fcfcfc;">=</button>
-                <button onclick="display('%')" class="operator">%</button>
+                <button onclick="display('%')" class="operator">%</button><br>
+                <button onclick="display('100')" class="key">100</button>
+                <button onclick="display('00')" class="key">00</button>
+                <button onclick="back()" class="operator" id="del">Del</button>
               </tr>
               </div>
            </table> 
@@ -151,6 +160,10 @@
   }
   function clr(){
     output.value="";
+  }
+  function back(){
+    var value=document.getElementById("del").value;
+    document.getElementById("input").value= value.substr( value.length-1);
   }
 
 </script>
